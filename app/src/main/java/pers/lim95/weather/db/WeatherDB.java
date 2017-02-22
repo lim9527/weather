@@ -65,7 +65,7 @@ public class WeatherDB {
     /**
      * 从数据库读取全国所有的省份信息。
      */
-    public List<Province> loadProvince(){
+    public List<Province> loadProvinces(){
         List<Province> list = new ArrayList<>();
         Cursor cursor = db.query("Province", null, null, null, null, null, null);
         if (cursor.moveToFirst()){
@@ -98,7 +98,7 @@ public class WeatherDB {
     /**
      * 从数据库读取某省下的所有城市信息。
      */
-    public List<City> loadCity(int provinceId){
+    public List<City> loadCities(int provinceId){
         List<City> list = new ArrayList<>();
         Cursor cursor = db.query("City", null,
                 "province_id = ?", new String[]{String.valueOf(provinceId)},
@@ -134,7 +134,7 @@ public class WeatherDB {
     /**
      * 从数据库读取某城市下的所有县信息。
      */
-    public List<County> loadCounty(int cityId){
+    public List<County> loadCounties(int cityId){
         List<County> list = new ArrayList<>();
         Cursor cursor = db.query("County", null,
                 "city_id = ?", new String[]{String.valueOf(cityId)},
